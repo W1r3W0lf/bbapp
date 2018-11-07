@@ -3,7 +3,7 @@ package com.wolf.wire.babyapplication;
 public class User {
 
     private String Name;
-    
+
     public User(String Name){
         this.Name = Name;
     }

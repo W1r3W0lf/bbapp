@@ -12,9 +12,18 @@ public class Baby {
 
     private gender gender;
 
+    // These are public so we don't have to have a bunch of stub functions that just pass along values
+    // like So baby.diaper.change() rather than baby.diaperChange()
+    public Diaper diaper;
 
-    public Baby(String Due){
-        DueDate = Due;
+    public Feeding feeding;
+
+
+    public Baby(String Name){
+        this.Name = Name;
+
+        this.diaper = new Diaper(0);
+        this.feeding = new Feeding();
     }
 
 

@@ -1,17 +1,29 @@
 package com.wolf.wire.babyapplication;
 
 public class Diaper {
-    public Diaper(boolean change, int size) {
-        this.change = change;
+
+    enum diaperType {
+        pee, poop, both;
+
+        diaperType() {
+        }
+    }
+
+    // full refers to if the diaper is full or not
+    private boolean full;
+    private int size;
+
+    public Diaper(int size){
+        this.full = false;
         this.size = size;
     }
 
-    public boolean isChange() {
-        return change;
+    public boolean isFull() {
+        return full;
     }
 
-    public void setChange(boolean change) {
-        this.change = change;
+    public void setFull(boolean full) {
+        this.full = full;
     }
 
     public int getSize() {
@@ -22,13 +34,4 @@ public class Diaper {
         this.size = size;
     }
 
-    private boolean change;
-    private int size;
-
-    enum diaperType {
-        pee, poop, both;
-
-        diaperType() {
-        }
-    }
 }
