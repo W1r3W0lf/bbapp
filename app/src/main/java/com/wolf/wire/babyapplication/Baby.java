@@ -2,15 +2,15 @@ package com.wolf.wire.babyapplication;
 
 public class Baby {
 
-    String DueDate;
+    private String DueDate;
 
-    String Name;
+    private String Name;
 
     enum gender {
         Male, Female
     }
 
-    gender gender;
+    private gender gender;
 
 
     public Baby(String Due){
@@ -43,6 +43,6 @@ public class Baby {
     public void setGender(Baby.gender gender) {
         this.gender = gender;
     }
-    
+
 
 }
