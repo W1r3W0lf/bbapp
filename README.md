@@ -1,2 +1,2 @@
 # bbapp
-This is a cool app for the yungins
+This is an android app for keeping track of your baby/babies.
