@@ -18,7 +18,7 @@ public class ExampleUnitTest {
     public void diaper_constructor() {
         Diaper dpr = new Diaper(1);
         dpr.setFilledWith(Diaper.diaperType.pee);
-        assertEquals(Diaper.diaperType.pee ,  dpr.getFilledWith());
+        assertEquals(Diaper.diaperType.pee , dpr.getFilledWith());
         assertTrue(dpr.isFull());
         assertEquals(1, dpr.getSize());
     }

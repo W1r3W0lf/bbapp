@@ -8,11 +8,7 @@ public class User {
         this.Name = Name;
     }
 
-    public String getName() {
-        return Name;
-    }
+    public String getName() { return Name; }
 
-    public void setName(String name) {
-        Name = name;
-    }
+    public void setName(String name) { Name = name; }
 }
