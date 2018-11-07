@@ -1,6 +1,5 @@
 package com.wolf.wire.babyapplication;
 
-interface History{
-
-    void save();
+public class User {
+    String Name;
 }
