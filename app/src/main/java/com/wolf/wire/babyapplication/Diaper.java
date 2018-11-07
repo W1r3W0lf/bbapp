@@ -13,10 +13,24 @@ public class Diaper {
     private boolean full;
     private int size;
 
+    private diaperType filledWith;
+
     public Diaper(int size){
-        this.full = false;
+        full = false;
         this.size = size;
+        filledWith = null;
     }
+
+    public void change(int size){
+        full = false;
+        this.size = size;
+        filledWith = null;
+    }
+
+    public diaperType getFilledWith() { return filledWith; }
+
+    public void setFilledWith(diaperType filledWith) { this.filledWith = filledWith; }
+
 
     public boolean isFull() {
         return full;
@@ -25,6 +39,7 @@ public class Diaper {
     public void setFull(boolean full) {
         this.full = full;
     }
+
 
     public int getSize() {
         return size;
