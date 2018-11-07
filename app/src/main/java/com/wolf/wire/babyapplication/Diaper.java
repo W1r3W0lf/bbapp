@@ -29,7 +29,10 @@ public class Diaper {
 
     public diaperType getFilledWith() { return filledWith; }
 
-    public void setFilledWith(diaperType filledWith) { this.filledWith = filledWith; }
+    public void setFilledWith(diaperType filledWith) {
+        full = true;
+        this.filledWith = filledWith;
+    }
 
 
     public boolean isFull() {
