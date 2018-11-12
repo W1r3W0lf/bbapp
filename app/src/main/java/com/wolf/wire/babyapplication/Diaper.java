@@ -1,5 +1,9 @@
 package com.wolf.wire.babyapplication;
 
+import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class Diaper {
 
     enum diaperType {
@@ -13,6 +17,11 @@ public class Diaper {
     private boolean full;
     private int size;
 
+    private Date history_Diaper;
+    private Date future_Diaper;
+    private Timer future_timer;
+    private TimerTask task;
+
     private diaperType filledWith;
 
     public Diaper(int size){
@@ -22,6 +31,8 @@ public class Diaper {
     }
 
     public void change(int size){
+        Date date = new Date();
+        setDate(date);
         full = false;
         this.size = size;
         filledWith = null;
@@ -43,13 +54,23 @@ public class Diaper {
         this.full = full;
     }
 
-
-    public int getSize() {
-        return size;
+    public void setFuture_timer() {
+        future_timer.schedule(task, future_Diaper);
     }
 
-    public void setSize(int size) {
-        this.size = size;
+    public void setDate(Date date) {
+        history_Diaper = date;
     }
 
+    public Date getDate() {
+        return history_Diaper;
+    }
+
+    public void setFuture_Diaper(Date future_Diaper) {
+        this.future_Diaper = future_Diaper;
+    }
+
+    public void setTask(TimerTask task) {
+        this.task = task;
+    }
 }
