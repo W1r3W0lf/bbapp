@@ -12,8 +12,7 @@ public class Baby {
 
     private gender gender;
 
-    // These are public so we don't have to have a bunch of stub functions that just pass along values
-    // like So baby.diaper.change() rather than baby.diaperChange()
+
     public Diaper diaper;
 
     public Feeding feeding;

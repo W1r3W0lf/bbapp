@@ -4,9 +4,13 @@ public class User {
 
     private String Name;
 
+    public Baby children[];
+
     public User(String Name){
         this.Name = Name;
     }
+
+
 
     public String getName() { return Name; }
 
