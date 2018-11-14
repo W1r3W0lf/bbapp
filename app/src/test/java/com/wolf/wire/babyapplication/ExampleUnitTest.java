@@ -14,13 +14,13 @@ public class ExampleUnitTest {
     public void addition_isCorrect() {
         assertEquals(4, 2 + 2);
     }
-    @Test
+    /*@Test
     public void diaper_constructor() {
         Diaper dpr = new Diaper(1);
         dpr.setFilledWith(Diaper.diaperType.pee);
         assertEquals(Diaper.diaperType.pee , dpr.getFilledWith());
         assertTrue(dpr.isFull());
         assertEquals(1, dpr.getSize());
-    }
+    }*/
 }
 
