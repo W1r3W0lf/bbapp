@@ -22,3 +22,11 @@ Read the commit message to see if it hints at improved code structure.
 The first commit line is the most important.
 Describe any limitations of the current code.
 Do not include patch set-specific comments.
+
+**Code Layout**
+=====================================
+* Enums and Typedef
+* Varables
+* Counstructors
+* Comples Functions
+* Setters and Getters
