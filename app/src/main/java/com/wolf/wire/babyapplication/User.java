@@ -1,18 +1,16 @@
 package com.wolf.wire.babyapplication;
 
+import com.google.gson.Gson;
+
 public class User {
 
-    private String Name;
 
     public Baby children[];
 
-    public User(String Name){
-        this.Name = Name;
+
+
+    public User(){
     }
 
 
-
-    public String getName() { return Name; }
-
-    public void setName(String name) { Name = name; }
 }
