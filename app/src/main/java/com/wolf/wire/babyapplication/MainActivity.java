@@ -5,6 +5,9 @@ import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,10 +18,13 @@ public class MainActivity extends AppCompatActivity {
 
     SharedPreferences sharedPreferences;
 
+    private TextView textView1 = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        textView1 = findViewById(R.id.textView);
 
 
         user = new User();
@@ -29,8 +35,9 @@ public class MainActivity extends AppCompatActivity {
 
         if (userJson.length() > 0){
             user.load(userJson);
+            Log.i("My_onCreate","Loaded Past User");
         } else {
-            Log.i( "onCreate","No Past User");
+            Log.i( "My_onCreate","No Past User");
         }
 
 
@@ -49,10 +56,14 @@ public class MainActivity extends AppCompatActivity {
 
         editor.apply();
 
+        Log.i("My_onPause","Saved Past User");
 
 
     }
 
 
-
+    public void baby(View view) {
+        Log.i("My_babyButton","Button pushed");
+        textView1.setText(Integer.toString(++user.childrenNumber));
+    }
 }

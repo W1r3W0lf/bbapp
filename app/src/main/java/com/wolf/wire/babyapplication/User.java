@@ -7,6 +7,9 @@ public class User {
 
     public Baby children[];
 
+    // For testing only
+    public int childrenNumber = 0;
+
     public User(){
     }
 
