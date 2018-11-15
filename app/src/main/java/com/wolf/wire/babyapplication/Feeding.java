@@ -19,7 +19,7 @@ public class Feeding {
         timeFeed = getTimeFeed();
         formula_O2 = getFormula_O2();
     }
-    
+
     public boolean isNeedsFeeding() {
         if (needsFeeding)
         {
