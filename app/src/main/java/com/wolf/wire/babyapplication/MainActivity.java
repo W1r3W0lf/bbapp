@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    User user;
+    private User user;
 
     public static final String MyPrefs = "MyPrefs";
     public static final String UserName = "UserName";
@@ -40,8 +40,6 @@ public class MainActivity extends AppCompatActivity {
             Log.i( "My_onCreate","No Past User");
         }
 
-
-
     }
 
     @Override
@@ -65,5 +63,6 @@ public class MainActivity extends AppCompatActivity {
     public void baby(View view) {
         Log.i("My_babyButton","Button pushed");
         textView1.setText(Integer.toString(++user.childrenNumber));
+        user.makeBaby("Test");
     }
 }

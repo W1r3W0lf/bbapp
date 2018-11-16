@@ -2,16 +2,19 @@ package com.wolf.wire.babyapplication;
 
 import com.google.gson.Gson;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class User {
 
 
-    public Baby children[];
+
+    private List<Baby> children;
 
     // For testing only
     public int childrenNumber = 0;
 
-    public User(){
-    }
+    public User(){ children = new ArrayList<Baby>(); }
 
     // Saves children to json string
     public String save(){
@@ -22,8 +25,10 @@ public class User {
     // Load changes to User
     public void load(String babyString){
         Gson gson = new Gson();
-        children = gson.fromJson(babyString, Baby[].class);
+        children = gson.fromJson(babyString, List.class);
     }
+    
+    public void makeBaby(String name){ children.add(new Baby(name)); }
 
 
 }
