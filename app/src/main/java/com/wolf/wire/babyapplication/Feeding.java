@@ -4,12 +4,15 @@ import java.time.LocalTime;
 import java.util.Stack;
 import java.util.Timer;
 
-public class Feeding implements History {
+public class Feeding {
+
+    enum feedingType{
+        Breast, Bottle
+    }
 
     private boolean needsFeeding = false;
     private Timer timer;
     private int formula_O2;
-    private Stack<Feeding> feedingHistory;
     LocalTime timeFeed;
 
     public Feeding() {
@@ -17,8 +20,15 @@ public class Feeding implements History {
         formula_O2 = getFormula_O2();
     }
 
-    enum feedingType{
-        Breast, Bottle
+    public boolean isNeedsFeeding() {
+        if (needsFeeding)
+        {
+            setTimeFeed(java.time.LocalTime.now());
+            setFormula_O2(this.formula_O2);
+            return needsFeeding;
+        }
+        else
+            return needsFeeding;
     }
 
     public void setFormula_O2(int formula_O2) {
@@ -41,20 +51,6 @@ public class Feeding implements History {
         this.needsFeeding = needsFeeding;
     }
 
-    public boolean isNeedsFeeding() {
-        if (needsFeeding)
-        {
-            setTimeFeed(java.time.LocalTime.now());
-            setFormula_O2(this.formula_O2);
-            save();
-            return needsFeeding;
-        }
-        else
-            return needsFeeding;
-    }
 
-    @Override
-    public void save() {
-        feedingHistory.push(this);
-    }
+
 }
