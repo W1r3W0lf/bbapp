@@ -20,9 +20,11 @@ public class MainActivity extends AppCompatActivity {
 
     private User user;
 
-    // viewbaby variables
+    // Overlay declaration variables
     private long animationDuration = 1000;
     private ConstraintLayout viewBaby = null;
+    private ConstraintLayout viewDiaper = null;
+    private ConstraintLayout viewFeeding = null;
 
 
     public static final String MyPrefs = "MyPrefs";
@@ -39,8 +41,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         textView1 = findViewById(R.id.textView);
 
-        /* find the overlay */
+        /* find the overlay  for baby, feeding, and diaper*/
         viewBaby = findViewById(R.id.viewBaby_overlay);
+        viewDiaper = findViewById(R.id.viewDiaper_overlay);
+        viewFeeding = findViewById(R.id.viewFeeding_overlay);
+
 
         user = new User();
 
@@ -62,8 +67,10 @@ public class MainActivity extends AppCompatActivity {
         Point size = new Point();
         display.getSize(size);
 
-        // translate the viewBaby_overlay off screen without animation before anyone can see it.
+        // translate the overlay off screen without animation before anyone can see it.
         viewBaby.setX(size.x);
+        viewFeeding.setX(size.x);
+        viewDiaper.setX(size.x);
     }
 
     @Override
@@ -91,12 +98,60 @@ public class MainActivity extends AppCompatActivity {
         user.makeBaby("Test");
     }
 
+    /**
+     * hideBaby hides the constraint when the user clicks on the sliding window
+     * @param view
+     */
     public void hideBaby(View view) {
         viewBaby.animate().x(viewBaby.getWidth()).setDuration(animationDuration);
     }
 
+    /**
+     * viewBaby moves the over lay onto the screen.
+     * @param view
+     */
     public void viewBaby(View view) {
         // move overlay on screen by animating the x value
         viewBaby.animate().x(0).setDuration(animationDuration);
+        viewFeeding.animate().x(viewFeeding.getWidth()).setDuration(animationDuration);
+        viewDiaper.animate().x(viewDiaper.getWidth()).setDuration(animationDuration);
+    }
+
+    /**
+     * hideFeeding hides the constraint when the user clicks on the sliding window
+     * @param view
+     */
+    public void hideFeeding(View view) {
+       viewFeeding.animate().x(viewFeeding.getWidth()).setDuration(animationDuration);
+    }
+
+    /**
+     * viewFeeding moves the overlay onto the screen
+     * @param view
+     */
+    public void viewFeeding(View view) {
+        // move overlay on screen by animating the x value
+        viewFeeding.animate().x(0).setDuration(animationDuration);
+        viewBaby.animate().x(viewBaby.getWidth()).setDuration(animationDuration);
+        viewDiaper.animate().x(viewDiaper.getWidth()).setDuration(animationDuration);
+    }
+
+
+    /**
+     * Hides the diaper overlay
+     * @param view
+     */
+    public void hideDiaper(View view) {
+        viewDiaper.animate().x(viewDiaper.getWidth()).setDuration(animationDuration);
+    }
+
+    /**
+     * Shows the diaper overlay
+     * @param view
+     */
+    public void viewDiaper (View view) {
+        viewDiaper.animate().x(0).setDuration(animationDuration);
+        viewFeeding.animate().x(viewFeeding.getWidth()).setDuration(animationDuration);
+        viewBaby.animate().x(viewBaby.getWidth()).setDuration(animationDuration);
     }
 }
