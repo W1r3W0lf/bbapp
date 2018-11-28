@@ -20,7 +20,10 @@ public class MainActivity extends AppCompatActivity {
 
     private User user;
 
-    // Overlay declaration variables
+    /**
+     *
+     // Overlay declaration variables
+     */
     private long animationDuration = 1000;
     private ConstraintLayout viewBaby = null;
     private ConstraintLayout viewDiaper = null;

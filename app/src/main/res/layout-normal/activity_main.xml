@@ -14,8 +14,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="Diaper"
         android:onClick="viewDiaper"
+        android:text="Diaper"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button2" />
@@ -27,8 +27,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="Feeding"
         android:onClick="viewFeeding"
+        android:text="Feeding"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -109,22 +109,22 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-    android:id="@+id/textView3"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="8dp"
-    android:layout_marginEnd="8dp"
-    android:layout_marginBottom="16dp"
-    android:text="TextView"
-    android:textSize="18sp"
-    app:layout_constraintBottom_toTopOf="@+id/button2"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent" />
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        android:text="TextView"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/viewBaby_overlay"
-        android:layout_width="443dp"
-        android:layout_height="644dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_marginBottom="6dp"
         android:background="#99000000"
         android:elevation="4dp"
@@ -154,12 +154,12 @@
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/viewFeeding_overlay"
-        android:onClick="hideFeeding"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="6dp"
         android:background="#99000000"
         android:elevation="4dp"
-        android:layout_width="427dp"
-        android:layout_height="644dp"
-        android:layout_marginBottom="6dp"
+        android:onClick="hideFeeding"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -170,7 +170,7 @@
     <android.support.constraint.ConstraintLayout
         android:id="@+id/viewDiaper_overlay"
         android:layout_width="match_parent"
-        android:layout_height="637dp"
+        android:layout_height="0dp"
         android:layout_marginBottom="1dp"
         android:background="#99000000"
         android:elevation="4dp"
