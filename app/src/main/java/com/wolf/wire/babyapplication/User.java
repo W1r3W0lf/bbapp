@@ -11,12 +11,8 @@ import java.util.List;
  */
 public class User {
 
-
-
     private List<Baby> children;
 
-    // For testing only
-    public int childrenNumber = 0;
 
     public User(){ children = new ArrayList<Baby>(); }
 
@@ -39,10 +35,19 @@ public class User {
     }
 
     /**
-     * Makes a baby and adds it to it's list of babies
-     * @param name name of the new baby
+     * adds a new baby to the user's children
+     * @param name name of the child
+     * @param gender gender of the child
+     * @param diaper the size of the diaper of the child
      */
-    public void makeBaby(String name){ children.add(new Baby(name)); }
+    public void makeBaby(String name, Baby.gender gender, int diaper){ children.add(new Baby(name, gender, diaper)); }
+
+    /**
+     * adds a new baby that has not been born yet to the user children
+     * @param name name of the baby
+     * @param DueDate the due date of the baby
+     */
+    public void makeBaby(String name, String DueDate){children.add(new Baby(name, DueDate));}
 
 
 }

@@ -4,17 +4,12 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Point;
+import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.Display;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.TextView;
-
-import static com.wolf.wire.babyapplication.R.id.viewBaby_overlay;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,14 +30,12 @@ public class MainActivity extends AppCompatActivity {
 
     SharedPreferences sharedPreferences;
 
-    private TextView textView1 = null;
 
     @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        textView1 = findViewById(R.id.textView);
 
         /* find the overlay  for baby, feeding, and diaper*/
         viewBaby = findViewById(R.id.viewBaby_overlay);
@@ -56,11 +49,19 @@ public class MainActivity extends AppCompatActivity {
 
         String userJson = sharedPreferences.getString(UserName,"");
 
-        if (userJson.length() > 0){
-            user.load(userJson);
-            Log.i("My_onCreate","Loaded Past User");
-        } else {
-            Log.i( "My_onCreate","No Past User");
+        try {
+            assert userJson != null;
+            if (userJson.length() > 0) {
+                user.load(userJson);
+                Log.i("My_onCreate", "Loaded Past User");
+            } else {
+                Log.i("My_onCreate", "No Past User");
+            }
+        }
+        catch (AssertionError e){
+            //If the userJson is a null pointer length will raise an error
+            //If that happens then we just assume no past user
+            Log.e("My_onCreate",e.getMessage());
         }
 
 
@@ -93,17 +94,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
-
-    public void baby(View view) {
-        Log.i("My_babyButton","Button pushed");
-        textView1.setText(Integer.toString(++user.childrenNumber));
-        user.makeBaby("Test");
-    }
-
     /**
      * hideBaby hides the constraint when the user clicks on the sliding window
-     * @param view
+     * @param view app view
      */
     public void hideBaby(View view) {
         viewBaby.animate().x(viewBaby.getWidth()).setDuration(animationDuration);
@@ -111,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * viewBaby moves the over lay onto the screen.
-     * @param view
+     * @param view app view
      */
     public void viewBaby(View view) {
         // move overlay on screen by animating the x value
@@ -122,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * hideFeeding hides the constraint when the user clicks on the sliding window
-     * @param view
+     * @param view app view
      */
     public void hideFeeding(View view) {
        viewFeeding.animate().x(viewFeeding.getWidth()).setDuration(animationDuration);
@@ -130,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * viewFeeding moves the overlay onto the screen
-     * @param view
+     * @param view app view
      */
     public void viewFeeding(View view) {
         // move overlay on screen by animating the x value
@@ -142,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Hides the diaper overlay
-     * @param view
+     * @param view app view
      */
     public void hideDiaper(View view) {
         viewDiaper.animate().x(viewDiaper.getWidth()).setDuration(animationDuration);
@@ -150,7 +143,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Shows the diaper overlay
-     * @param view
+     * @param view app view
      */
     public void viewDiaper (View view) {
         viewDiaper.animate().x(0).setDuration(animationDuration);
