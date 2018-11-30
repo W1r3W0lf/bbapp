@@ -5,6 +5,10 @@ import com.google.gson.Gson;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author wire_wolf
+ * @version 0.3
+ */
 public class User {
 
 
@@ -16,18 +20,28 @@ public class User {
 
     public User(){ children = new ArrayList<Baby>(); }
 
-    // Saves children to json string
+    /**
+     * turns the user into a json string
+     * @return the user json string
+     */
     public String save(){
         Gson gson = new Gson();
         return gson.toJson(children);
     }
 
-    // Load changes to User
+    /**
+     * takes a json user string and loads it's values
+     * @param babyString the user json string to load
+     */
     public void load(String babyString){
         Gson gson = new Gson();
         children = gson.fromJson(babyString, List.class);
     }
-    
+
+    /**
+     * Makes a baby and adds it to it's list of babies
+     * @param name name of the new baby
+     */
     public void makeBaby(String name){ children.add(new Baby(name)); }
 
 
