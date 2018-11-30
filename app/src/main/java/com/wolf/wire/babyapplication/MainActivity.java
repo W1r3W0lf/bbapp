@@ -10,10 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Display;
 import android.view.View;
-<<<<<<< HEAD
-=======
 import android.widget.TextView;
->>>>>>> aa3717581f1f7c690e8d0a15e60a263843f944f6
 
 public class MainActivity extends AppCompatActivity {
 
