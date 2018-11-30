@@ -37,7 +37,11 @@ public class User {
         Gson gson = new Gson();
         children = gson.fromJson(babyString, List.class);
     }
-    
+
+    /**
+     * Makes a baby and adds it to it's list of babies
+     * @param name name of the new baby
+     */
     public void makeBaby(String name){ children.add(new Baby(name)); }
 
 
