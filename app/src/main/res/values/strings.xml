@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">baby application</string>
     <string name="josh">Josh</string>
+    <string name="new_baby">New Baby</string>
 </resources>
