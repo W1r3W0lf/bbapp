@@ -10,6 +10,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Display;
 import android.view.View;
+<<<<<<< HEAD
+=======
+import android.widget.TextView;
+>>>>>>> aa3717581f1f7c690e8d0a15e60a263843f944f6
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private ConstraintLayout viewBaby = null;
     private ConstraintLayout viewDiaper = null;
     private ConstraintLayout viewFeeding = null;
+    private ConstraintLayout viewNewBaby = null;
 
 
     public static final String MyPrefs = "MyPrefs";
@@ -41,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         viewBaby = findViewById(R.id.viewBaby_overlay);
         viewDiaper = findViewById(R.id.viewDiaper_overlay);
         viewFeeding = findViewById(R.id.viewFeeding_overlay);
+        viewNewBaby = findViewById(R.id.viewNewBaby_overlay);
 
 
         user = new User();
@@ -75,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
         viewBaby.setX(size.x);
         viewFeeding.setX(size.x);
         viewDiaper.setX(size.x);
+        viewNewBaby.setX(size.x);
     }
 
     @Override
@@ -148,6 +155,23 @@ public class MainActivity extends AppCompatActivity {
     public void viewDiaper (View view) {
         viewDiaper.animate().x(0).setDuration(animationDuration);
         viewFeeding.animate().x(viewFeeding.getWidth()).setDuration(animationDuration);
+        viewBaby.animate().x(viewBaby.getWidth()).setDuration(animationDuration);
+    }
+
+    /**
+     * on background click will hide the viewNewBaby_overlay
+     * @param view
+     */
+    public void hideNewBaby(View view) {
+        viewNewBaby.animate().x(viewNewBaby.getWidth()).setDuration(animationDuration);
+    }
+
+    /**
+     * Moves the viewNewBaby_overlay onto the screen
+     * @param view
+     */
+    public void viewNewBaby(View view) {
+        viewNewBaby.animate().x(0).setDuration(animationDuration);
         viewBaby.animate().x(viewBaby.getWidth()).setDuration(animationDuration);
     }
 }

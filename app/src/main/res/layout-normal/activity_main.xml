@@ -150,6 +150,23 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Hello" />
 
+        <Button
+            android:id="@+id/newBaby"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="296dp"
+            android:layout_marginTop="550dp"
+            android:layout_marginEnd="27dp"
+            android:layout_marginBottom="34dp"
+            android:text="@string/new_baby"
+            android:onClick="viewNewBaby"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
     </android.support.constraint.ConstraintLayout>
 
     <android.support.constraint.ConstraintLayout
@@ -182,6 +199,19 @@
 
     </android.support.constraint.ConstraintLayout>
 
+<android.support.constraint.ConstraintLayout
+    android:id="@+id/viewNewBaby_overlay"
+    android:layout_width="match_parent"
+    android:layout_height="626dp"
+    android:background="#99000000"
+    android:elevation="4dp"
+    android:onClick="hideNewBaby"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+
+    app:layout_constraintTop_toTopOf="parent">
+
+</android.support.constraint.ConstraintLayout>
 
 </android.support.constraint.ConstraintLayout>
 
