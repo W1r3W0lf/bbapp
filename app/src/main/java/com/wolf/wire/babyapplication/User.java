@@ -1,9 +1,13 @@
 package com.wolf.wire.babyapplication;
 
+import android.util.Pair;
+
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.ListIterator;
 
 /**
  * @author wire_wolf
@@ -13,14 +17,13 @@ public class User {
 
     private List<Baby> children;
 
-
-    public User(){ children = new ArrayList<Baby>(); }
+    User(){ children = new ArrayList<>(); }
 
     /**
      * turns the user into a json string
      * @return the user json string
      */
-    public String save(){
+    String save(){
         Gson gson = new Gson();
         return gson.toJson(children);
     }
@@ -29,9 +32,41 @@ public class User {
      * takes a json user string and loads it's values
      * @param babyString the user json string to load
      */
-    public void load(String babyString){
+    void load(String babyString){
         Gson gson = new Gson();
         children = gson.fromJson(babyString, List.class);
+    }
+
+
+
+    public List<Event> getEvents(){
+
+        List<Event> events = new ArrayList<>();
+
+        ListIterator<Baby> childrenIterator = (ListIterator<Baby>) children.iterator();
+        Baby child;
+
+        while (childrenIterator.hasNext()){
+            child = childrenIterator.next();
+            events.add(Event(child.getName(), ))
+        }
+
+        for(int babayIndex = 0 ; babayIndex < children.size() ; babayIndex++){
+            events.
+        }
+
+        //populate list
+        // Jonny Feeding Date
+        List<Event> next_events = new ArrayList<>();
+
+        StringBuilder message = new StringBuilder();
+        for(int x=0 ; x < children.size() ; x++){
+
+            message.append(children.get(x));
+
+        }
+
+        return next_events;
     }
 
     /**
