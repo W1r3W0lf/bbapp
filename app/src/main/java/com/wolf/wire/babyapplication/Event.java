@@ -19,6 +19,19 @@ public class Event {
         this.myType = myType;
     }
 
+    public String getString(){
+        StringBuilder message = new StringBuilder(babyName);
+        message.append(" needs");
+        if (myType == eventType.Diaper){
+            message.append(" Diaper ");
+        } else {
+            message.append(" Feeding ");
+        }
+        message.append(evenetDate.toString());
+        return message.toString();
+    }
+
+
     public Date getEvenetDate() {
         return evenetDate;
     }
