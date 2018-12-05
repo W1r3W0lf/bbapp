@@ -1,10 +1,16 @@
 package com.wolf.wire.babyapplication;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class Diaper {
+
+    // Full refers to if the diaper is full or not
+    private boolean full;
+
+    private int size;
 
     enum diaperType {
         pee, poop, both;
@@ -13,16 +19,19 @@ public class Diaper {
         }
     }
 
-    // full refers to if the diaper is full or not
-    private boolean full;
-    private int size;
-
-    private Date history_Diaper;
-    private Date future_Diaper;
-    private Timer future_timer;
-    private TimerTask task;
+    private Date diaper_ChangeTime;
 
     private diaperType filledWith;
+
+
+
+    // Separated these three as we may replace it with one object for a timer
+    private Date scheduled_DiaperTimer;
+    private Timer set_Timer;
+    private TimerTask resultant_Task;
+    // Alarm Manager object might be more efficient
+
+
 
     /**
      * Takes in a size of the diaper and sets the
@@ -35,24 +44,31 @@ public class Diaper {
         filledWith = null;
     }
 
+
     /**
      * Will record the date time in which the diaper is full
-     * and record the sixe of the new diaper.
+     * and record the size of the new diaper.
      * @param size
      */
-    public void change(int size){
-        Date date = new Date();
-        setDate(date);
-        full = false;
-        this.size = size;
-        filledWith = null;
+    public void change(int size) {
+        if (isFull()) {
+            setDate();
+            this.size = size;
+
+            full = false;
+
+            if (filledWith != null)
+                filledWith = null;
+        }
     }
+
 
     /**
      * Returns what the diaper was filledwith.
      * @return
      */
     public diaperType getFilledWith() { return filledWith; }
+
 
     /**
      * The setter for what the diaper is filledwith
@@ -64,6 +80,7 @@ public class Diaper {
         this.filledWith = filledWith;
     }
 
+
     /**
      * Getter for the boolean full if the diaper is full
      * or not.
@@ -72,6 +89,7 @@ public class Diaper {
     public boolean isFull() {
         return full;
     }
+
 
     /**
      * Sets the boolean full on whether the diaper is
@@ -82,22 +100,32 @@ public class Diaper {
         this.full = full;
     }
 
+
     /**
-     * Will be used to set a timer by the user for a
-     * future diaper change to be expected.
+     * Getter for the size of the diaper
+     * @return the size
      */
-    public void setFuture_timer() {
-        future_timer.schedule(task, future_Diaper);
+    public int getSize() {
+        return size;
     }
 
     /**
-     * Takes in the date time object the diaper was
-     * changed and saves it as history.
-     * @param date
+     * Sets the size of the diaper to the passed size object
+     * from the User
+     * @param size
      */
-    public void setDate(Date date) {
-        history_Diaper = date;
+    public void setSize(int size) {
+        this.size = size;
     }
+
+
+    /**
+     * Sets the dateTime object to the current time of the change.
+     */
+    public void setDate() {
+        diaper_ChangeTime = Calendar.getInstance().getTime();
+    }
+
 
     /**
      * Getter for the date time object saved in the
@@ -105,33 +133,45 @@ public class Diaper {
      * @return
      */
     public Date getDate() {
-        return history_Diaper;
+        return diaper_ChangeTime;
     }
+
 
     /**
      * Will be used to set a future diaper date time for
      * future diaper timer.
-     * @param future_Diaper
+     * @param user_Preference
      */
-    public void setFuture_Diaper(Date future_Diaper) {
-        this.future_Diaper = future_Diaper;
+    public void setScheduled_DiaperTimer(Date user_Preference) {
+        this.scheduled_DiaperTimer = user_Preference;
     }
+
 
     /**
      * Getter for the scheduled Diaper Date time object.
      * @return
      */
-    public Date getFuture_Diaper() {
-        return future_Diaper;
+    public Date getScheduled_DiaperTimer() {
+        return scheduled_DiaperTimer;
     }
 
+
     /**
-     * This task is what will happen when the timer goes
+     * Will be used to set a timer by the user for a
+     * future diaper change to be expected.
+     */
+    public void setFuture_timer() {
+        set_Timer.schedule(resultant_Task, scheduled_DiaperTimer);
+    }
+
+
+    /**
+     * This resultant_Task is what will happen when the timer goes
      * off for a future diaper timer. Will be included in
      * stretch to include an alert for user.
-     * @param task
+     * @param resultant_Task
      */
-    public void setTask(TimerTask task) {
-        this.task = task;
+    public void setResultant_Task(TimerTask resultant_Task) {
+        this.resultant_Task = resultant_Task;
     }
 }

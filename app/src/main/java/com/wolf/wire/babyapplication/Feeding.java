@@ -16,14 +16,16 @@ public class Feeding {
 
     private Timer timer; //See Javadoc for setTimer for notes about this object
 
+
     /**
-     * Basic Constructor sets null values.
+     * Basic Constructor sets null values for formula, feedingTime and timer.
      */
     public Feeding() {
         formula_O2 = 0;
         feedingTime = null;
         timer = null;
     }
+
 
     /**
      * Calls the setter for feedingTime when button submit is
@@ -32,6 +34,7 @@ public class Feeding {
     public void needsFeeding() {
             setFeedingTime();
         }
+
 
     /**
      * Correlates to the formula value from the seekbar in the
@@ -42,6 +45,7 @@ public class Feeding {
         this.formula_O2 = formula_O2;
     }
 
+
     /**
      * Getter for the formula type on a feeding object.
      * @return
@@ -49,6 +53,7 @@ public class Feeding {
     public int getFormula_O2() {
         return formula_O2;
     }
+
 
     /**
      * Sets the feedingTime to the current time instance
@@ -58,12 +63,14 @@ public class Feeding {
         feedingTime = Calendar.getInstance().getTime();
     }
 
+
     /**
      * Getter for the Date object feedingTime in order to getDate()
      * for reference by the User.
      * @return
      */
     public Date getFeedingTime() { return feedingTime; }
+
 
     /**
      * Still working on getting this to relate to a button..
