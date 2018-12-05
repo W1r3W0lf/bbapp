@@ -19,15 +19,6 @@ public class Event {
         this.myType = myType;
     }
 
-    public boolean after(Event rhs){
-        return evenetDate.after(rhs.getEvenetDate());
-    }
-
-    public boolean before(Event rhs){
-        return evenetDate.before(rhs.getEvenetDate());
-    }
-
-
     public Date getEvenetDate() {
         return evenetDate;
     }

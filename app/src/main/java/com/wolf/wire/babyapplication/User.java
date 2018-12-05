@@ -5,6 +5,9 @@ import android.util.Pair;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.ListIterator;
@@ -48,22 +51,24 @@ public class User {
 
         while (childrenIterator.hasNext()){
             child = childrenIterator.next();
-            events.add(Event(child.getName(), ))
+            // diaper and feeding should diaper should have the same getDate method
+            events.add(new Event(child.getName(), child.feeding.getFeedingTime(), Event.eventType.Feeding));
+            events.add(new Event(child.getName(), child.diaper.getDate(), Event.eventType.Diaper));
         }
 
-        for(int babayIndex = 0 ; babayIndex < children.size() ; babayIndex++){
-            events.
-        }
+        Collections.sort(events, new Comparator<Event>(){
+            public int compare (Event e1, Event e2){
+                return e1.getEvenetDate().compareTo(e2.getEvenetDate());
+            }
+        });
+
 
         //populate list
         // Jonny Feeding Date
         List<Event> next_events = new ArrayList<>();
 
-        StringBuilder message = new StringBuilder();
-        for(int x=0 ; x < children.size() ; x++){
-
-            message.append(children.get(x));
-
+        for (int x = 0; x < 3 ; x++){
+            next_events.add(events.get(x));
         }
 
         return next_events;
