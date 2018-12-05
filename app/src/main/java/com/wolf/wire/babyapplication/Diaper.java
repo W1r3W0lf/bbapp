@@ -118,6 +118,14 @@ public class Diaper {
     }
 
     /**
+     * Getter for the scheduled Diaper Date time object.
+     * @return
+     */
+    public Date getFuture_Diaper() {
+        return future_Diaper;
+    }
+
+    /**
      * This task is what will happen when the timer goes
      * off for a future diaper timer. Will be included in
      * stretch to include an alert for user.
