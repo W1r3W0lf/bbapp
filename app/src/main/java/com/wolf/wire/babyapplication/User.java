@@ -1,14 +1,10 @@
 package com.wolf.wire.babyapplication;
 
-import android.util.Pair;
-
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Date;
 import java.util.List;
 import java.util.ListIterator;
 
@@ -41,7 +37,10 @@ public class User {
     }
 
 
-
+    /**
+     * returns a list of the next three events for the children of the user
+     * @return next_events
+     */
     public List<Event> getEvents(){
 
         List<Event> events = new ArrayList<>();
@@ -62,9 +61,6 @@ public class User {
             }
         });
 
-
-        //populate list
-        // Jonny Feeding Date
         List<Event> next_events = new ArrayList<>();
 
         for (int x = 0; x < 3 ; x++){
