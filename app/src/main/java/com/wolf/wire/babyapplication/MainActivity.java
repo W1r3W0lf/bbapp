@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Display;
 import android.view.View;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -33,18 +34,28 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences;
 
 
+    private TextView textView1 = null;
+    private TextView seekBarOz_view = null;
+
+    int min = 0, max = 10, current = 4;
+
+    SeekBar seekbar;
+
     @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        textView1 = findViewById(R.id.textView);
+        seekBarOz_view = findViewById(R.id.seekBarOz_view);
+
+
         /* find the overlay  for baby, feeding, and diaper*/
         viewBaby = findViewById(R.id.viewBaby_overlay);
         viewDiaper = findViewById(R.id.viewDiaper_overlay);
         viewFeeding = findViewById(R.id.viewFeeding_overlay);
         viewNewBaby = findViewById(R.id.viewNewBaby_overlay);
-
 
         user = new User();
 
@@ -67,6 +78,32 @@ public class MainActivity extends AppCompatActivity {
             Log.e("My_onCreate",e.getMessage());
         }
 
+
+        // Seek bar creation
+        seekBarOz_view = (TextView) findViewById(R.id.seekBarOz_view);
+        seekbar = (SeekBar) findViewById(R.id.seekBarOz);
+
+        seekbar.setMax(max - min);
+        seekbar.setProgress(current - min);
+        seekBarOz_view.setText("" + current);
+
+        seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                current = progress + min;
+                seekBarOz_view.setText("" + current);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
 
 
         // get the size of the screen/window
@@ -115,6 +152,12 @@ public class MainActivity extends AppCompatActivity {
         viewBaby.animate().x(0).setDuration(animationDuration);
         viewFeeding.animate().x(viewFeeding.getWidth()).setDuration(animationDuration);
         viewDiaper.animate().x(viewDiaper.getWidth()).setDuration(animationDuration);
+        viewNewBaby.animate().x(viewNewBaby.getWidth()).setDuration(animationDuration);
+
+        // will hide the window if x = 0 or if the window is open
+        if(viewBaby.getX() == 0) {
+            viewBaby.animate().x(viewBaby.getWidth()).setDuration(animationDuration);
+        }
     }
 
     /**
@@ -134,6 +177,11 @@ public class MainActivity extends AppCompatActivity {
         viewFeeding.animate().x(0).setDuration(animationDuration);
         viewBaby.animate().x(viewBaby.getWidth()).setDuration(animationDuration);
         viewDiaper.animate().x(viewDiaper.getWidth()).setDuration(animationDuration);
+
+        // hides the feeding overlay if x = 0 or if the window is open
+        if(viewFeeding.getX() == 0){
+            viewFeeding.animate().x(viewFeeding.getWidth()).setDuration(animationDuration);
+        }
     }
 
 
@@ -153,6 +201,12 @@ public class MainActivity extends AppCompatActivity {
         viewDiaper.animate().x(0).setDuration(animationDuration);
         viewFeeding.animate().x(viewFeeding.getWidth()).setDuration(animationDuration);
         viewBaby.animate().x(viewBaby.getWidth()).setDuration(animationDuration);
+
+        // will hide the diaper overlay if x = 0 or if the window is open
+        if(viewDiaper.getX() == 0) {
+            viewDiaper.animate().x(viewDiaper.getWidth()).setDuration(animationDuration);
+        }
+
     }
 
     /**
@@ -170,5 +224,10 @@ public class MainActivity extends AppCompatActivity {
     public void viewNewBaby(View view) {
         viewNewBaby.animate().x(0).setDuration(animationDuration);
         viewBaby.animate().x(viewBaby.getWidth()).setDuration(animationDuration);
+
+        // Will close the window if x = 0 or if the baby window is open
+        if(viewNewBaby.getX() == 0) {
+            viewNewBaby.animate().x(viewNewBaby.getWidth()).setDuration(animationDuration);
+        }
     }
 }
