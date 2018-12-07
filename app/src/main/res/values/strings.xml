@@ -2,4 +2,5 @@
     <string name="app_name">baby application</string>
     <string name="josh">Josh</string>
     <string name="new_baby">New Baby</string>
+    <string name="baby_s_name">Baby\'s Name</string>
 </resources>
