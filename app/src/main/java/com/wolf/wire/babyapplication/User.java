@@ -57,9 +57,7 @@ public class User {
 
         for(int x = 0 ; x < children.size() ; x++){
             child = children.get(x);
-            assert(child.feeding.getDate() != null);
             events.add(new Event(child.getName(), child.feeding.getDate(), Event.eventType.Feeding));
-            assert(child.diaper.getDate() != null);
             events.add(new Event(child.getName(), child.diaper.getDate(), Event.eventType.Diaper));
         }
 

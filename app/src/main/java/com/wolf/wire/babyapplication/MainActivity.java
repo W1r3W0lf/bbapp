@@ -78,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.i("My_onCreate", "Loaded Past User");
             } else {
                 Log.i("My_onCreate", "No Past User");
+                user.makeBaby("Test", Baby.gender.Female, 3);
             }
         }
         catch (AssertionError e){
@@ -86,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
             Log.e("My_onCreate",e.getMessage());
         }
 
-        user.makeBaby("Test", Baby.gender.Female, 3);
+
 
         // Setting the text in the text boxes under the images
         List<Event> events = user.getEvents();
