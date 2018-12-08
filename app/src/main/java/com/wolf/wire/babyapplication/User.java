@@ -43,17 +43,23 @@ public class User {
      */
     public List<Event> getEvents(){
 
+        if(children.size() == 0)
+            return new ArrayList<Event>();
+
+
         List<Event> events = new ArrayList<>();
 
-        ListIterator<Baby> childrenIterator = (ListIterator<Baby>) children.iterator();
         Baby child;
 
-        while (childrenIterator.hasNext()){
-            child = childrenIterator.next();
-            // diaper and feeding should diaper should have the same getDate method
-            events.add(new Event(child.getName(), child.feeding.getFeedingTime(), Event.eventType.Feeding));
+
+        for(int x = 0 ; x < children.size() ; x++){
+            child = children.get(x);
+            assert(child.feeding.getDate() != null);
+            events.add(new Event(child.getName(), child.feeding.getDate(), Event.eventType.Feeding));
+            assert(child.diaper.getDate() != null);
             events.add(new Event(child.getName(), child.diaper.getDate(), Event.eventType.Diaper));
         }
+
 
         Collections.sort(events, new Comparator<Event>(){
             public int compare (Event e1, Event e2){
@@ -63,7 +69,7 @@ public class User {
 
         List<Event> next_events = new ArrayList<>();
 
-        for (int x = 0; x < 3 ; x++){
+        for (int x = 0; x < 3 && x<events.size() ; x++){
             next_events.add(events.get(x));
         }
 
