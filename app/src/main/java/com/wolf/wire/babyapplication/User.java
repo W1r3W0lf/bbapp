@@ -1,7 +1,9 @@
 package com.wolf.wire.babyapplication;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -33,7 +35,8 @@ public class User {
      */
     void load(String babyString){
         Gson gson = new Gson();
-        children = gson.fromJson(babyString, List.class);
+        Type listType = new TypeToken<ArrayList<Baby>>(){}.getType();
+        children = gson.fromJson(babyString, listType);
     }
 
 
