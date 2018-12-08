@@ -17,10 +17,7 @@ public class Diaper {
     private boolean full;
     private int size;
 
-    private Date history_Diaper;
-    private Date future_Diaper;
-    private Timer future_timer;
-    private TimerTask task;
+    private Date date;
 
     private diaperType filledWith;
 
@@ -33,6 +30,7 @@ public class Diaper {
         full = false;
         this.size = size;
         filledWith = null;
+        date = new Date();
     }
 
     /**
@@ -82,56 +80,8 @@ public class Diaper {
         this.full = full;
     }
 
-    /**
-     * Will be used to set a timer by the user for a
-     * future diaper change to be expected.
-     */
-    public void setFuture_timer() {
-        future_timer.schedule(task, future_Diaper);
-    }
+    public Date getDate() {return date;}
 
-    /**
-     * Takes in the date time object the diaper was
-     * changed and saves it as history.
-     * @param date
-     */
-    public void setDate(Date date) {
-        history_Diaper = date;
-    }
+    public void setDate(Date date) {this.date = date;}
 
-    /**
-     * Getter for the date time object saved in the
-     * history of the diaper changes.
-     * @return
-     */
-    public Date getDate() {
-        return history_Diaper;
-    }
-
-    /**
-     * Will be used to set a future diaper date time for
-     * future diaper timer.
-     * @param future_Diaper
-     */
-    public void setFuture_Diaper(Date future_Diaper) {
-        this.future_Diaper = future_Diaper;
-    }
-
-    /**
-     * Getter for the scheduled Diaper Date time object.
-     * @return
-     */
-    public Date getFuture_Diaper() {
-        return future_Diaper;
-    }
-
-    /**
-     * This task is what will happen when the timer goes
-     * off for a future diaper timer. Will be included in
-     * stretch to include an alert for user.
-     * @param task
-     */
-    public void setTask(TimerTask task) {
-        this.task = task;
-    }
 }

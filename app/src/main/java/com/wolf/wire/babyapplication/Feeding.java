@@ -14,15 +14,13 @@ public class Feeding {
 
     private Date feedingTime; //When a feeding takes place
 
-    private Timer timer; //See Javadoc for setTimer for notes about this object
 
     /**
      * Basic Constructor sets null values.
      */
     public Feeding() {
         formula_O2 = 0;
-        feedingTime = null;
-        timer = null;
+        feedingTime = new Date();
     }
 
     /**
@@ -65,14 +63,7 @@ public class Feeding {
      */
     public Date getFeedingTime() { return feedingTime; }
 
-    /**
-     * Still working on getting this to relate to a button..
-     * I might try using an alarmManager object which will make comparison
-     * and recording of a timer easier. Also it would already have the alarm
-     * option for the time scheduled by user.
-     * @param timer
-     */
-    public void setTimer(Timer timer) {
-        this.timer = timer;
-    }
+    public Date getDate() {return feedingTime;}
+    public void setDate(Date date) {feedingTime = date;}
+
 }

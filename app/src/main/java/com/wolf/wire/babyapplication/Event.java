@@ -2,6 +2,11 @@ package com.wolf.wire.babyapplication;
 
 import java.util.Date;
 
+
+/**
+ * @author wire_wolf
+ * @version 0.5
+ */
 public class Event {
 
     enum eventType{
@@ -19,13 +24,17 @@ public class Event {
         this.myType = myType;
     }
 
+    /**
+     * makes a string of the items in the Event
+     * @return message
+     */
     public String getString(){
         StringBuilder message = new StringBuilder(babyName);
         message.append(" needs");
         if (myType == eventType.Diaper){
-            message.append(" Diaper ");
+            message.append(" diaper changing ");
         } else {
-            message.append(" Feeding ");
+            message.append(" feeding ");
         }
         message.append(evenetDate.toString());
         return message.toString();

@@ -13,6 +13,8 @@ import android.view.View;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     private User user;
@@ -33,8 +35,11 @@ public class MainActivity extends AppCompatActivity {
 
     SharedPreferences sharedPreferences;
 
-
+    // Text under main buttons
     private TextView textView1 = null;
+    private TextView textView2 = null;
+    private TextView textView3 = null;
+
     private TextView seekBarOz_view = null;
 
     int min = 0, max = 10, current = 4;
@@ -48,6 +53,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         textView1 = findViewById(R.id.textView);
+        textView2 = findViewById(R.id.textView2);
+        textView3 = findViewById(R.id.textView3);
+
         seekBarOz_view = findViewById(R.id.seekBarOz_view);
 
 
@@ -70,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.i("My_onCreate", "Loaded Past User");
             } else {
                 Log.i("My_onCreate", "No Past User");
+                user.makeBaby("Test", Baby.gender.Female, 3);
             }
         }
         catch (AssertionError e){
@@ -77,6 +86,17 @@ public class MainActivity extends AppCompatActivity {
             //If that happens then we just assume no past user
             Log.e("My_onCreate",e.getMessage());
         }
+
+
+
+        // Setting the text in the text boxes under the images
+        List<Event> events = user.getEvents();
+        if(events.size() > 0)
+            textView1.setText(events.get(0).getString());
+        if(events.size() > 1)
+            textView2.setText(events.get(1).getString());
+        if(events.size() > 2)
+            textView3.setText(events.get(2).getString());
 
 
         // Seek bar creation
