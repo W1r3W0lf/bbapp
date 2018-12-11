@@ -230,4 +230,11 @@ public class MainActivity extends AppCompatActivity {
             viewNewBaby.animate().x(viewNewBaby.getWidth()).setDuration(animationDuration);
         }
     }
+
+    public void onFeedingSubmit(View view) {
+        // Will be for the Feeding submit.
+        // babyName = (TextView or scroll type view) findviewbyid(R.id.babyNameFeeding);
+        // babyName.setFeeding(seekbarOz Value(current?), FeedingType(need a switch for this enum))
+
+    }
 }
