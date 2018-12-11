@@ -79,4 +79,8 @@ public class Feeding {
     public void setTimer(Timer timer) {
         this.timer = timer;
     }
+
+    public Date getDate() {return feedingTime;}
+    public void setDate(Date date) {feedingTime = date;}
+
 }

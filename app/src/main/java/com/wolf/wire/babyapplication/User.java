@@ -1,14 +1,12 @@
 package com.wolf.wire.babyapplication;
 
-import android.util.Pair;
-
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Date;
 import java.util.List;
 import java.util.ListIterator;
 
@@ -37,24 +35,32 @@ public class User {
      */
     void load(String babyString){
         Gson gson = new Gson();
-        children = gson.fromJson(babyString, List.class);
+        Type listType = new TypeToken<ArrayList<Baby>>(){}.getType();
+        children = gson.fromJson(babyString, listType);
     }
 
 
-
+    /**
+     * returns a list of the next three events for the children of the user
+     * @return next_events
+     */
     public List<Event> getEvents(){
+
+        if(children.size() == 0)
+            return new ArrayList<Event>();
+
 
         List<Event> events = new ArrayList<>();
 
-        ListIterator<Baby> childrenIterator = (ListIterator<Baby>) children.iterator();
         Baby child;
 
-        while (childrenIterator.hasNext()){
-            child = childrenIterator.next();
-            // diaper and feeding should diaper should have the same getDate method
-            events.add(new Event(child.getName(), child.feeding.getFeedingTime(), Event.eventType.Feeding));
+
+        for(int x = 0 ; x < children.size() ; x++){
+            child = children.get(x);
+            events.add(new Event(child.getName(), child.feeding.getDate(), Event.eventType.Feeding));
             events.add(new Event(child.getName(), child.diaper.getDate(), Event.eventType.Diaper));
         }
+
 
         Collections.sort(events, new Comparator<Event>(){
             public int compare (Event e1, Event e2){
@@ -62,12 +68,9 @@ public class User {
             }
         });
 
-
-        //populate list
-        // Jonny Feeding Date
         List<Event> next_events = new ArrayList<>();
 
-        for (int x = 0; x < 3 ; x++){
+        for (int x = 0; x < 3 && x<events.size() ; x++){
             next_events.add(events.get(x));
         }
 
