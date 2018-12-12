@@ -122,54 +122,6 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <android.support.constraint.ConstraintLayout
-        android:id="@+id/viewBaby_overlay"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginBottom="6dp"
-        android:background="#99000000"
-        android:elevation="4dp"
-        android:onClick="hideBaby"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <EditText
-            android:id="@+id/editText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="78dp"
-            android:layout_marginTop="88dp"
-            android:layout_marginEnd="111dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Hello"
-            android:textColor="@color/cardview_light_background"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Hello" />
-
-        <Button
-            android:id="@+id/newBaby"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="296dp"
-            android:layout_marginTop="550dp"
-            android:layout_marginEnd="27dp"
-            android:layout_marginBottom="34dp"
-            android:text="@string/new_baby"
-            android:onClick="viewNewBaby"
-            android:textAlignment="center"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-
-    </android.support.constraint.ConstraintLayout>
-
-    <android.support.constraint.ConstraintLayout
         android:id="@+id/viewFeeding_overlay"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -181,6 +133,37 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="316dp"
+            android:layout_height="554dp"
+            android:layout_marginStart="49dp"
+            android:layout_marginTop="34dp"
+            android:layout_marginEnd="46dp"
+            android:layout_marginBottom="49dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@color/cardview_light_background" />
+
+        <TextView
+            android:id="@+id/textViewFeedingTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="cursive"
+            android:text="Feeding Information"
+            android:textAlignment="center"
+            android:textColor="@color/colorAccent"
+            android:textSize="40sp"
+            android:typeface="sans"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <SeekBar
             android:id="@+id/seekBarOz"
@@ -213,6 +196,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
     </android.support.constraint.ConstraintLayout>
 
     <android.support.constraint.ConstraintLayout
@@ -227,6 +211,37 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="316dp"
+            android:layout_height="554dp"
+            android:layout_marginStart="49dp"
+            android:layout_marginTop="34dp"
+            android:layout_marginEnd="46dp"
+            android:layout_marginBottom="49dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@color/cardview_light_background" />
+
+        <TextView
+            android:id="@+id/textViewDiaperTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="cursive"
+            android:text="Diaper Information"
+            android:textAlignment="center"
+            android:textColor="@color/colorAccent"
+            android:textSize="40sp"
+            android:typeface="sans"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </android.support.constraint.ConstraintLayout>
 
@@ -266,11 +281,13 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="300dp"
+        android:max="10"
+        android:min="1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewDiaperSize" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewDS" />
 
     <TextView
         android:id="@+id/textViewBabyName"
@@ -328,7 +345,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
-        android:id="@+id/textViewDiaperSize"
+        android:id="@+id/textViewDS"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:layout_marginStart="8dp"
@@ -340,6 +357,7 @@
         android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@+id/seekBarDiaperSize"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.564"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextBabyName" />
 
@@ -357,6 +375,139 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/viewBaby_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="6dp"
+        android:background="#99000000"
+        android:elevation="4dp"
+        android:onClick="hideBaby"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <ImageView
+            android:id="@+id/imageViewBackground"
+            android:layout_width="316dp"
+            android:layout_height="554dp"
+            android:layout_marginStart="49dp"
+            android:layout_marginTop="34dp"
+            android:layout_marginEnd="46dp"
+            android:layout_marginBottom="49dp"
+            android:contentDescription="TODO"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@color/cardview_light_background" />
+
+        <TextView
+            android:id="@+id/textViewBabyOne"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="Baby 1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.246"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.303" />
+
+        <TextView
+            android:id="@+id/textViewBabyTwo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Baby 2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="95dp" />
+
+        <TextView
+            android:id="@+id/textViewBabyTitle"
+            android:layout_width="329dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="48dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="cursive"
+            android:text="Childlren"
+            android:textAlignment="center"
+            android:textColor="@color/colorAccent"
+            android:textSize="40sp"
+            android:typeface="sans"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.214"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/newBaby"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="296dp"
+            android:layout_marginTop="550dp"
+            android:layout_marginEnd="27dp"
+            android:layout_marginBottom="34dp"
+            android:onClick="viewNewBaby"
+            android:text="@string/new_baby"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewChildName"
+            android:layout_width="311dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="Child Name"
+            android:textAlignment="textStart"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="123dp" />
+
+        <TextView
+            android:id="@+id/textViewDS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="8dp"
+            android:text="Diaper Size: "
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.29"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewBabyTwo" />
+
+        <TextView
+            android:id="@+id/textViewDS2"
+            android:layout_width="80dp"
+            android:layout_height="15dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:text="Diaper Size: "
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.29"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewBabyOne" />
+
+
+    </android.support.constraint.ConstraintLayout>
 
 </android.support.constraint.ConstraintLayout>
 
