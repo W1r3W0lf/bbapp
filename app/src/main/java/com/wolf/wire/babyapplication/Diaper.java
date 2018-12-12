@@ -42,6 +42,7 @@ public class Diaper {
         full = false;
         this.size = size;
         filledWith = null;
+        diaper_ChangeTime = new Date();
     }
 
 
