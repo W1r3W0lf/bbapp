@@ -41,10 +41,13 @@ public class MainActivity extends AppCompatActivity {
     private TextView textView3 = null;
 
     private TextView seekBarOz_view = null;
+    private TextView textViewDiaperNumber = null;
 
     int min = 0, max = 10, current = 4;
 
+    // seekBar declartion
     SeekBar seekbar;
+    SeekBar seekBarNewBabyDiaperSize;
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -57,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
         textView3 = findViewById(R.id.textView3);
 
         seekBarOz_view = findViewById(R.id.seekBarOz_view);
+        textViewDiaperNumber = findViewById(R.id.textViewDiaperSizeNumber);
 
 
         /* find the overlay  for baby, feeding, and diaper*/
@@ -98,11 +102,38 @@ public class MainActivity extends AppCompatActivity {
         if(events.size() > 2)
             textView3.setText(events.get(2).getString());
 
+        seekBarNewBabyDiaperSize = (SeekBar) findViewById(R.id.seekBarDiaperSize);
+
+        // new Baby overlay seek bar settings
+        seekBarNewBabyDiaperSize.setMax(max - min);
+        seekBarNewBabyDiaperSize.setProgress(current - min);
+        textViewDiaperNumber.setText("" + current);
 
         // Seek bar creation
         seekBarOz_view = (TextView) findViewById(R.id.seekBarOz_view);
         seekbar = (SeekBar) findViewById(R.id.seekBarOz);
 
+        seekBarNewBabyDiaperSize.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                current = progress + min;
+                textViewDiaperNumber.setText("" + current);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
+
+
+        // feeding overlay seek bar settings
         seekbar.setMax(max - min);
         seekbar.setProgress(current - min);
         seekBarOz_view.setText("" + current);
@@ -197,6 +228,7 @@ public class MainActivity extends AppCompatActivity {
         viewFeeding.animate().x(0).setDuration(animationDuration);
         viewBaby.animate().x(viewBaby.getWidth()).setDuration(animationDuration);
         viewDiaper.animate().x(viewDiaper.getWidth()).setDuration(animationDuration);
+        viewNewBaby.animate().x(viewNewBaby.getWidth()).setDuration(animationDuration);
 
         // hides the feeding overlay if x = 0 or if the window is open
         if(viewFeeding.getX() == 0){
@@ -221,6 +253,7 @@ public class MainActivity extends AppCompatActivity {
         viewDiaper.animate().x(0).setDuration(animationDuration);
         viewFeeding.animate().x(viewFeeding.getWidth()).setDuration(animationDuration);
         viewBaby.animate().x(viewBaby.getWidth()).setDuration(animationDuration);
+        viewNewBaby.animate().x(viewNewBaby.getWidth()).setDuration(animationDuration);
 
         // will hide the diaper overlay if x = 0 or if the window is open
         if(viewDiaper.getX() == 0) {
@@ -244,6 +277,8 @@ public class MainActivity extends AppCompatActivity {
     public void viewNewBaby(View view) {
         viewNewBaby.animate().x(0).setDuration(animationDuration);
         viewBaby.animate().x(viewBaby.getWidth()).setDuration(animationDuration);
+        viewDiaper.animate().x(viewDiaper.getWidth()).setDuration(animationDuration);
+        viewFeeding.animate().x(viewFeeding.getWidth()).setDuration(animationDuration);
 
         // Will close the window if x = 0 or if the baby window is open
         if(viewNewBaby.getX() == 0) {
