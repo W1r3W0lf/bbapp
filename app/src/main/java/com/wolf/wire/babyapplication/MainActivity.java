@@ -228,6 +228,7 @@ public class MainActivity extends AppCompatActivity {
         viewFeeding.animate().x(0).setDuration(animationDuration);
         viewBaby.animate().x(viewBaby.getWidth()).setDuration(animationDuration);
         viewDiaper.animate().x(viewDiaper.getWidth()).setDuration(animationDuration);
+        viewNewBaby.animate().x(viewNewBaby.getWidth()).setDuration(animationDuration);
 
         // hides the feeding overlay if x = 0 or if the window is open
         if(viewFeeding.getX() == 0){
@@ -252,6 +253,7 @@ public class MainActivity extends AppCompatActivity {
         viewDiaper.animate().x(0).setDuration(animationDuration);
         viewFeeding.animate().x(viewFeeding.getWidth()).setDuration(animationDuration);
         viewBaby.animate().x(viewBaby.getWidth()).setDuration(animationDuration);
+        viewNewBaby.animate().x(viewNewBaby.getWidth()).setDuration(animationDuration);
 
         // will hide the diaper overlay if x = 0 or if the window is open
         if(viewDiaper.getX() == 0) {
