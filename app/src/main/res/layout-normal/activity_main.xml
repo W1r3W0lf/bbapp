@@ -122,84 +122,6 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <android.support.constraint.ConstraintLayout
-        android:id="@+id/viewFeeding_overlay"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginBottom="6dp"
-        android:background="#99000000"
-        android:elevation="4dp"
-        android:onClick="hideFeeding"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="316dp"
-            android:layout_height="554dp"
-            android:layout_marginStart="49dp"
-            android:layout_marginTop="34dp"
-            android:layout_marginEnd="46dp"
-            android:layout_marginBottom="49dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@color/cardview_light_background" />
-
-        <TextView
-            android:id="@+id/textViewFeedingTitle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="50dp"
-            android:layout_marginEnd="8dp"
-            android:fontFamily="cursive"
-            android:text="Feeding Information"
-            android:textAlignment="center"
-            android:textColor="@color/colorAccent"
-            android:textSize="40sp"
-            android:typeface="sans"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <SeekBar
-            android:id="@+id/seekBarOz"
-            android:layout_width="317dp"
-            android:layout_height="47dp"
-            android:layout_marginStart="50dp"
-            android:layout_marginTop="50dp"
-            android:layout_marginEnd="44dp"
-            android:layout_marginBottom="276dp"
-            android:background="#49302333"
-            android:max="10"
-            android:min="1"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/seekBarOz_view"
-            app:layout_constraintVertical_bias="0.933" />
-
-        <TextView
-            android:id="@+id/seekBarOz_view"
-            android:layout_width="67dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="283dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="14dp"
-            android:text="TextView"
-            app:layout_constraintBottom_toTopOf="@+id/seekBarOz"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </android.support.constraint.ConstraintLayout>
-
-    <android.support.constraint.ConstraintLayout
         android:id="@+id/viewDiaper_overlay"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -506,6 +428,99 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewBabyOne" />
 
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/viewFeeding_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="6dp"
+        android:background="#99000000"
+        android:elevation="4dp"
+        android:onClick="hideFeeding"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="316dp"
+            android:layout_height="554dp"
+            android:layout_marginStart="49dp"
+            android:layout_marginTop="34dp"
+            android:layout_marginEnd="46dp"
+            android:layout_marginBottom="49dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@color/cardview_light_background" />
+
+        <TextView
+            android:id="@+id/textViewFeedingTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="cursive"
+            android:text="Feeding Information"
+            android:textAlignment="center"
+            android:textColor="@color/colorAccent"
+            android:textSize="40sp"
+            android:typeface="sans"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <SeekBar
+            android:id="@+id/seekBarOz"
+            android:layout_width="317dp"
+            android:layout_height="47dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="44dp"
+            android:layout_marginBottom="276dp"
+            android:background="#49302333"
+            android:max="10"
+            android:min="1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/seekBarOz_view"
+            app:layout_constraintVertical_bias="0.933" />
+
+        <TextView
+            android:id="@+id/seekBarOz_view"
+            android:layout_width="67dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="283dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="14dp"
+            android:text="TextView"
+            app:layout_constraintBottom_toTopOf="@+id/seekBarOz"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/feedingSubmit"
+            android:layout_width="88dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="260dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="60dp"
+            android:layout_marginBottom="140dp"
+            android:onClick="onFeedingSubmit"
+            android:text="Submit"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     </android.support.constraint.ConstraintLayout>
 
