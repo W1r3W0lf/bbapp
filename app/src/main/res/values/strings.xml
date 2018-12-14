@@ -3,4 +3,16 @@
     <string name="josh">Josh</string>
     <string name="new_baby">New Baby</string>
     <string name="baby_s_name">Baby\'s Name</string>
+    <string name="diaper">Diaper</string>
+    <string name="feeding">Feeding</string>
+    <string name="textview">TextView</string>
+    <string name="baby_2">Baby 2</string>
+    <string name="todo">TODO</string>
+    <string name="child_s_name">Child\'s Name</string>
+    <string name="baby">Baby</string>
+    <string name="childs_name">Child\'s Name</string>
+    <string name="child_information">Child Information</string>
+    <string name="childlren">Childlren</string>
+    <string name="diaper_information">Diaper Information</string>
+    <string name="baby_1">Baby 1</string>
 </resources>
