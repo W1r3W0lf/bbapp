@@ -77,6 +77,23 @@ public class User {
         return next_events;
     }
 
+    public void setUserFeeding(String babyname, int formulaOz, Feeding.feedingType feedingType) {
+        int i = 0;
+        Baby baby;
+
+        while (i < children.size()){
+
+            baby = children.get(i);
+
+            if (babyname == baby.getName()){
+                baby.feeding.setFeeding(formulaOz, feedingType);
+            }
+            else
+                i++;
+
+        }
+    }
+
     /**
      * adds a new baby to the user's children
      * @param name name of the child
@@ -91,6 +108,5 @@ public class User {
      * @param DueDate the due date of the baby
      */
     public void makeBaby(String name, String DueDate){children.add(new Baby(name, DueDate));}
-
 
 }

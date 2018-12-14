@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.Display;
 import android.view.View;
 import android.widget.SeekBar;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import java.util.List;
@@ -45,9 +46,12 @@ public class MainActivity extends AppCompatActivity {
 
     int min = 0, max = 10, current = 4;
 
-    // seekBar declartion
+    // seekBar declaration
     SeekBar seekbar;
     SeekBar seekBarNewBabyDiaperSize;
+
+    TextView textview;
+    Switch aSwitch;
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -284,5 +288,12 @@ public class MainActivity extends AppCompatActivity {
         if(viewNewBaby.getX() == 0) {
             viewNewBaby.animate().x(viewNewBaby.getWidth()).setDuration(animationDuration);
         }
+    }
+
+    public void onFeedingSubmit(View view) {
+        //textview = (TextView)findViewById(babyNameFeeding);
+        //seekbar = (SeekBar)findViewById(seekBarOz);
+        //aSwitch = (Switch)findViewById(feedingTypeSelect);
+        //user.setUserFeeding(textview.getText(), seekbar.getProgress(), aSwitch.isChecked);
     }
 }
